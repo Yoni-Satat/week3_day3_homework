@@ -6,6 +6,10 @@ artist_1 = Artist.new({'name' => 'Bobo the killer'})
 artist_2 = Artist.new({'name' => 'Henrieta and the Chickens'})
 artist_3 = Artist.new({'name' => 'Sneaks and Ladders'})
 
+artist_1.save()
+artist_2.save()
+artist_3.save()
+
 
 album_1 = Album.new({
     'title' => 'Living The Dream',
@@ -24,6 +28,10 @@ album_3 = Album.new({
   'genre' => 'techno',
   'artist_id' => artist_3.id
   })
+
+  album_1.save()
+  album_2.save()
+  album_3.save()
 
   binding.pry
   nil
