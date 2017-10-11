@@ -19,8 +19,8 @@ album_2 = Album.new({
   'artist_id' => artist_2.id
   })
 
-  album_3 = Album.new({
-    'title' => 'Baby Boom',
-    'genre' => 'techno',
-    'artist_id' => artis_3.id
-    })
+album_3 = Album.new({
+  'title' => 'Baby Boom',
+  'genre' => 'techno',
+  'artist_id' => artis_3.id
+  })
