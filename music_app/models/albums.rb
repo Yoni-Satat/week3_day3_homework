@@ -9,7 +9,7 @@ class Album
     @id = options['id'].to_i if options['id']
     @title = options['title']
     @genre = options['genre']
-    @artist_id = options['artist_id'].to_i
+    @artist_id = options['artist_id'].to_i()
   end
 
   def self.all()
@@ -35,9 +35,10 @@ class Album
   end
 
   def artist()
-      sql = "SELECT * FROM artists WHERE artist_id = $1"
-      values = [@id]
-      SqlRunner.run(sql, values).map{|artist| Artist.new(artist)}
+      sql = "SELECT * FROM artists WHERE id = $1"
+      values = [@artist_id]
+      results = SqlRunner.run(sql, values)
+      return Artist.new(results[0])
     end
 
 

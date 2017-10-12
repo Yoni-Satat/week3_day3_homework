@@ -14,7 +14,7 @@ class Artist
       sql = "
         INSERT INTO artists(name)
         VALUES($1)
-        RETURNING id
+        RETURNING *
       "
       values = [@name]
       @id = SqlRunner.run(sql, values)[0]['id'].to_i()
@@ -36,11 +36,14 @@ class Artist
 
   def album()
       sql = "SELECT * FROM albums WHERE id = $1"
-      values = [@artist_id]
+      values = [@id]
       results = SqlRunner.run(sql, values)
-      artist_data = results[0]
-      artist = Artist.new(artist_data)
-      return artist
+
+      return results.map {|album| Album.new(album)}
+      #
+      # artist_data = results[0]
+      # artist = Artist.new(artist_data)
+      # return artist
     end
 
 
